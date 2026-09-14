@@ -1,0 +1,26 @@
+{
+  "name": "Pipeline Board - practical exam",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-24-bookworm",
+
+  // Runs while the codespace is still starting, so the candidate never
+  // watches an install. npm ci uses the committed lock file.
+  "postCreateCommand": "npm ci",
+  "waitFor": "postCreateCommand",
+
+  "forwardPorts": [5180],
+  "portsAttributes": {
+    "5180": {
+      "label": "Pipeline board",
+      "onAutoForward": "openPreview"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench.startupEditor": "readme",
+        "git.openRepositoryInParentFolders": "never"
+      }
+    }
+  }
+}
